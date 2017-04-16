@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.monk.monk">
+            function <span class="apidocSignatureSpan"></span>monk
+            <span class="apidocSignatureSpan">(uri, opts, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.monk.Collection">
             function <span class="apidocSignatureSpan">monk.</span>Collection
             <span class="apidocSignatureSpan">(manager, name, options)</span>
@@ -83,6 +92,15 @@
 
             <a class="apidocElementLiA" href="#apidoc.element.monk.super_">
             function <span class="apidocSignatureSpan">monk.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.toString">
+            function <span class="apidocSignatureSpan">monk.</span>toString
             <span class="apidocSignatureSpan">()</span>
             </a>
 
@@ -401,6 +419,84 @@
 
 
     <h2>
+        <a href="#apidoc.element.monk.monk" id="apidoc.element.monk.monk">
+        function <span class="apidocSignatureSpan"></span>monk
+        <span class="apidocSignatureSpan">(uri, opts, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Manager(uri, opts, fn) {
+  if (!uri) {
+    throw Error(&#x27;No connection URI provided.&#x27;)
+  }
+
+  if (!(this instanceof Manager)) {
+    return new Manager(uri, opts, fn)
+  }
+
+  if (typeof opts === &#x27;function&#x27;) {
+    fn = opts
+    opts = {}
+  }
+
+  opts = opts || {}
+
+  if (Array.isArray(uri)) {
+    if (!opts.database) {
+      for (var i = 0, l = uri.length; i &#x3c; l; i++) {
+        if (!opts.database) {
+          opts.database = uri[i].replace(/([^\/])+\/?/, &#x27;&#x27;)
+        }
+        uri[i] = uri[i].replace(/\/.*/, &#x27;&#x27;)
+      }
+    }
+    uri = uri.join(&#x27;,&#x27;) + &#x27;/&#x27; + opts.database
+    monkDebug(&#x27;repl set connection &#x22;%j&#x22; to database &#x22;%s&#x22;&#x27;, uri, opts.database)
+  }
+
+  if (typeof uri === &#x27;string&#x27;) {
+    if (!/^mongodb:\/\//.test(uri)) {
+      uri = &#x27;mongodb://&#x27; + uri
+    }
+  }
+
+  this._state = STATE.OPENING
+
+  this._queue = []
+  this.on(&#x27;open&#x27;, function (db) {
+    monkDebug(&#x27;connection opened&#x27;)
+    monkDebug(&#x27;emptying queries queue (%s to go)&#x27;, this._queue.length)
+    this._queue.forEach(function (cb) {
+      cb(db)
+    })
+  }.bind(this))
+
+  this._connectionURI = uri
+  this._connectionOptions = opts
+
+  this.open(uri, opts, fn &#x26;&#x26; function (err) {
+    fn(err, this)
+  }.bind(this))
+
+  this.helper = {
+    id: ObjectId
+  }
+
+  this.collections = {}
+  this.options = { safe: true }
+
+  this.open = this.open.bind(this)
+  this.close = this.close.bind(this)
+  this.executeWhenOpened = this.executeWhenOpened.bind(this)
+  this.collection = this.col = this.get = this.get.bind(this)
+  this.oid = this.id
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
         <a href="#apidoc.element.monk.Collection" id="apidoc.element.monk.Collection">
         function <span class="apidocSignatureSpan">monk.</span>Collection
         <span class="apidocSignatureSpan">(manager, name, options)</span>
@@ -468,6 +564,21 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
   EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.toString" id="apidoc.element.monk.toString">
+        function <span class="apidocSignatureSpan">monk.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return toString;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
