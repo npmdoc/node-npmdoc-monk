@@ -90,17 +90,17 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.monk.super_">
-            function <span class="apidocSignatureSpan">monk.</span>super_
-            <span class="apidocSignatureSpan">()</span>
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager">
+            function <span class="apidocSignatureSpan">monk.</span>manager
+            <span class="apidocSignatureSpan">(uri, opts, fn)</span>
             </a>
 
         </li>
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.monk.toString">
-            function <span class="apidocSignatureSpan">monk.</span>toString
+            <a class="apidocElementLiA" href="#apidoc.element.monk.super_">
+            function <span class="apidocSignatureSpan">monk.</span>super_
             <span class="apidocSignatureSpan">()</span>
             </a>
 
@@ -115,6 +115,12 @@
         <li>
 
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">monk.</span>helpers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">monk.</span>manager.prototype</span>
 
         </li>
 
@@ -372,6 +378,128 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.monk.manager">module monk.manager</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.manager">
+            function <span class="apidocSignatureSpan">monk.</span>manager
+            <span class="apidocSignatureSpan">(uri, opts, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.Collection">
+            function <span class="apidocSignatureSpan">monk.manager.</span>Collection
+            <span class="apidocSignatureSpan">(manager, name, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.id">
+            function <span class="apidocSignatureSpan">monk.manager.</span>id
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.super_">
+            function <span class="apidocSignatureSpan">monk.manager.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">monk.manager.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.monk.manager.prototype">module monk.manager.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.prototype.catch">
+            function <span class="apidocSignatureSpan">monk.manager.prototype.</span>catch
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.prototype.close">
+            function <span class="apidocSignatureSpan">monk.manager.prototype.</span>close
+            <span class="apidocSignatureSpan">(force, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.prototype.create">
+            function <span class="apidocSignatureSpan">monk.manager.prototype.</span>create
+            <span class="apidocSignatureSpan">(name, creationOptions, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.prototype.executeWhenOpened">
+            function <span class="apidocSignatureSpan">monk.manager.prototype.</span>executeWhenOpened
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.prototype.get">
+            function <span class="apidocSignatureSpan">monk.manager.prototype.</span>get
+            <span class="apidocSignatureSpan">(name, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.prototype.id">
+            function <span class="apidocSignatureSpan">monk.manager.prototype.</span>id
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.prototype.open">
+            function <span class="apidocSignatureSpan">monk.manager.prototype.</span>open
+            <span class="apidocSignatureSpan">(uri, opts, fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.monk.manager.prototype.then">
+            function <span class="apidocSignatureSpan">monk.manager.prototype.</span>then
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
     <li class="apidocModuleLi"><a href="#apidoc.module.monk.util">module monk.util</a><ol>
 
         <li>
@@ -550,6 +678,94 @@
   if (str == null) return ObjectId()
   return typeof str === &#x27;string&#x27; ? ObjectId.createFromHexString(str) : str
 }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * @deprecated
+ */
+
+Collection.prototype.id = function (str) {
+  console.warn(&#x27;DEPRECATED (collection.id): use monk.id instead (see https://Automattic.github.io/monk/docs/id.html)&#x27;)
+  return require(&#x27;./helpers&#x27;).<span class="apidocCodeKeywordSpan">id</span>(str)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager" id="apidoc.element.monk.manager">
+        function <span class="apidocSignatureSpan">monk.</span>manager
+        <span class="apidocSignatureSpan">(uri, opts, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Manager(uri, opts, fn) {
+  if (!uri) {
+    throw Error(&#x27;No connection URI provided.&#x27;)
+  }
+
+  if (!(this instanceof Manager)) {
+    return new Manager(uri, opts, fn)
+  }
+
+  if (typeof opts === &#x27;function&#x27;) {
+    fn = opts
+    opts = {}
+  }
+
+  opts = opts || {}
+
+  if (Array.isArray(uri)) {
+    if (!opts.database) {
+      for (var i = 0, l = uri.length; i &#x3c; l; i++) {
+        if (!opts.database) {
+          opts.database = uri[i].replace(/([^\/])+\/?/, &#x27;&#x27;)
+        }
+        uri[i] = uri[i].replace(/\/.*/, &#x27;&#x27;)
+      }
+    }
+    uri = uri.join(&#x27;,&#x27;) + &#x27;/&#x27; + opts.database
+    monkDebug(&#x27;repl set connection &#x22;%j&#x22; to database &#x22;%s&#x22;&#x27;, uri, opts.database)
+  }
+
+  if (typeof uri === &#x27;string&#x27;) {
+    if (!/^mongodb:\/\//.test(uri)) {
+      uri = &#x27;mongodb://&#x27; + uri
+    }
+  }
+
+  this._state = STATE.OPENING
+
+  this._queue = []
+  this.on(&#x27;open&#x27;, function (db) {
+    monkDebug(&#x27;connection opened&#x27;)
+    monkDebug(&#x27;emptying queries queue (%s to go)&#x27;, this._queue.length)
+    this._queue.forEach(function (cb) {
+      cb(db)
+    })
+  }.bind(this))
+
+  this._connectionURI = uri
+  this._connectionOptions = opts
+
+  this.open(uri, opts, fn &#x26;&#x26; function (err) {
+    fn(err, this)
+  }.bind(this))
+
+  this.helper = {
+    id: ObjectId
+  }
+
+  this.collections = {}
+  this.options = { safe: true }
+
+  this.open = this.open.bind(this)
+  this.close = this.close.bind(this)
+  this.executeWhenOpened = this.executeWhenOpened.bind(this)
+  this.collection = this.col = this.get = this.get.bind(this)
+  this.oid = this.id
+}</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -569,19 +785,6 @@
     </ul>
 
 
-
-    <h2>
-        <a href="#apidoc.element.monk.toString" id="apidoc.element.monk.toString">
-        function <span class="apidocSignatureSpan">monk.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return toString;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
 
 
 
@@ -668,7 +871,23 @@
     return cursor.toArray()
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ // opts
+ opts = this.opts(opts)
+
+ // query
+ debug(&#x27;%s aggregate %j&#x27;, this.name, stages)
+ return this.executeWhenOpened().then(function (col) {
+   return col.<span class="apidocCodeKeywordSpan">aggregate</span>(stages, opts)
+ }).then(function (cursor) {
+   return cursor.toArray()
+ }).then(thenFn(fn)).catch(catchFn(fn))
+}
+
+/**
+* Perform a bulkWrite operation without a fluent API
+...</pre></li>
     </ul>
 
 
@@ -699,7 +918,24 @@
     return col.bulkWrite(operations, opts)
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ if (opts.castIds !== false) {
+   operations = util.cast(operations)
+ }
+
+ // query
+ debug(&#x27;%s bulkWrite %j&#x27;, this.name, operations)
+ return this.executeWhenOpened().then(function (col) {
+   return col.<span class="apidocCodeKeywordSpan">bulkWrite</span>(operations, opts)
+ }).then(thenFn(fn)).catch(catchFn(fn))
+}
+
+/**
+* Returns the count of documents that would match a find() query. The db.collection.count() method does not perform the find() operation
+ but instead counts and returns the number of results that match a query.
+*
+* @param {Object} query - The query selection criteria.
+...</pre></li>
     </ul>
 
 
@@ -733,7 +969,23 @@
     return col.count(query, opts)
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ debug(&#x27;%s bulkWrite %j&#x27;, this.name, operations)
+ return this.executeWhenOpened().then(function (col) {
+   return col.bulkWrite(operations, opts)
+ }).then(thenFn(fn)).catch(catchFn(fn))
+}
+
+/**
+* Returns the count of documents that would match a find() query. The db.collection.<span class="apidocCodeKeywordSpan">count</span
+>() method does not perform the find() operation but instead counts and returns the number of results that match a query.
+*
+* @param {Object} query - The query selection criteria.
+* @param {Object} [opts] - Extra options for modifying the count.
+* @param {Function} [fn] - completion callback.
+* @return {Promise}
+*/
+...</pre></li>
     </ul>
 
 
@@ -772,7 +1024,23 @@
     return col.distinct(field, query, opts)
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ if (opts.castIds !== false) {
+   query = util.cast(query)
+ }
+
+ // query
+ debug(&#x27;%s distinct %s (%j)&#x27;, this.name, field, query)
+ return this.executeWhenOpened().then(function (col) {
+   return col.<span class="apidocCodeKeywordSpan">distinct</span>(field, query, opts)
+ }).then(thenFn(fn)).catch(catchFn(fn))
+}
+
+/**
+* Removes a collection from the database. The method also removes any indexes associated with the dropped collection.
+*
+* @param {Function} [fn] callback
+...</pre></li>
     </ul>
 
 
@@ -796,7 +1064,23 @@
     }
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {Function} [fn] callback
+ * @return {Promise}
+ */
+
+Collection.prototype.drop = function (fn) {
+debug(&#x27;%s drop&#x27;, this.name)
+return this.executeWhenOpened().then(function (col) {
+  return col.<span class="apidocCodeKeywordSpan">drop</span>()
+}).catch(function (err) {
+  if (err &#x26;&#x26; err.message === &#x27;ns not found&#x27;) {
+    return &#x27;ns not found&#x27;
+  } else {
+    throw err
+  }
+}).then(thenFn(fn)).catch(catchFn(fn))
+...</pre></li>
     </ul>
 
 
@@ -823,7 +1107,23 @@
     return col.dropIndex(fields, opts)
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ fields = util.fields(fields)
+ opts = this.opts(opts)
+
+ // query
+ debug(&#x27;%s dropIndex %j (%j)&#x27;, this.name, fields, opts)
+ return this.executeWhenOpened().then(function (col) {
+   return col.<span class="apidocCodeKeywordSpan">dropIndex</span>(fields, opts)
+ }).then(thenFn(fn)).catch(catchFn(fn))
+}
+
+/**
+* Drops all indexes other than the required index on the _id field.
+*
+* https://docs.mongodb.com/manual/reference/method/db.collection.dropIndexes/
+...</pre></li>
     </ul>
 
 
@@ -842,7 +1142,23 @@
     return col.dropIndexes()
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ * https://docs.mongodb.com/manual/reference/method/db.collection.dropIndexes/
+ *
+ * @param {Function} [fn] callback
+ *
+ * @example
+ *
+ * users.<span class="apidocCodeKeywordSpan">dropIndexes</span>()
+ * @return {Promise}
+ */
+
+Collection.prototype.dropIndexes = function (fn) {
+// query
+debug(&#x27;%s dropIndexes&#x27;, this.name)
+return this.executeWhenOpened().then(function (col) {
+...</pre></li>
     </ul>
 
 
@@ -868,7 +1184,23 @@
     return col.ensureIndex(fields, opts)
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ }
+
+ fields = util.fields(fields)
+
+ // query
+ debug(&#x27;%s ensureIndex %j (%j)&#x27;, this.name, fields, opts)
+ return this.executeWhenOpened().then(function (col) {
+   return col.<span class="apidocCodeKeywordSpan">ensureIndex</span>(fields, opts)
+ }).then(thenFn(fn)).catch(catchFn(fn))
+}
+
+/**
+* Selects documents in a collection and return them.
+*
+* @param {String|Object|ObjectId} query
+...</pre></li>
     </ul>
 
 
@@ -885,7 +1217,23 @@
     return db.collection(this.name)
   }.bind(this))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Execute when connection opened.
+* @private
+*/
+
+Collection.prototype.executeWhenOpened = function (fn) {
+ return this.manager.<span class="apidocCodeKeywordSpan">executeWhenOpened</span>().then(function (db) {
+   return db.collection(this.name)
+ }.bind(this))
+}
+
+/**
+* Opts utility.
+* @private
+...</pre></li>
     </ul>
 
 
@@ -1078,7 +1426,23 @@ io/monk/docs/collection/findOneAndUpdate.html)&#x27;)
     return doc &#x26;&#x26; doc.value || doc
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {Object} search query, or { query, update } object
+ * @param {Object} [update] object
+ * @param {Object|String|Array} [opts] options or fields
+ * @param {Function} [fn] callback
+ *
+ * @example
+ *
+ * users.<span class="apidocCodeKeywordSpan">findAndModify</span>({ name: &#x27;Mathieu&#x27; }, { $set: { foo: &#x27;bar&#x27; } },
+opts)
+ * users.findAndModify({ query: { name: &#x27;Mathieu&#x27; }, update: { $set: { foo: &#x27;bar&#x27; } }}, opts)
+ * @return {Promise}
+ */
+
+Collection.prototype.findAndModify = function (query, update, opts, fn) {
+query = query || {}
+...</pre></li>
     </ul>
 
 
@@ -1131,7 +1495,23 @@ io/monk/docs/collection/findOneAndUpdate.html)&#x27;)
     return docs &#x26;&#x26; docs[0] || null
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ * @param {String|ObjectId|Object} query
+ * @param {Object} [opts] - options
+ * @param {Function} [fn] - completion callback
+ *
+ * @example
+ *
+ * users.<span class="apidocCodeKeywordSpan">findOne</span>({name: &#x27;foo&#x27;}).then((doc) =&#x3e; {})
+ * @return {Promise}
+ */
+
+Collection.prototype.findOne = function (query, opts, fn) {
+query = util.query(query)
+
+if (typeof opts === &#x27;function&#x27;) {
+...</pre></li>
     </ul>
 
 
@@ -1166,7 +1546,23 @@ io/monk/docs/collection/findOneAndUpdate.html)&#x27;)
     return doc &#x26;&#x26; doc.value || doc
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ if (opts.castIds !== false) {
+   query = util.cast(query)
+ }
+
+ // query
+ debug(&#x27;%s findOneAndDelete %j with %j&#x27;, this.name, query)
+ return this.executeWhenOpened().then(function (col) {
+   return col.<span class="apidocCodeKeywordSpan">findOneAndDelete</span>(query, opts)
+ }).then(function (doc) {
+   return doc &#x26;&#x26; doc.value || doc
+ }).then(thenFn(fn)).catch(catchFn(fn))
+}
+
+/**
+* Find a document and update it in one atomic operation, requires a write lock for the duration of the operation.
+...</pre></li>
     </ul>
 
 
@@ -1205,7 +1601,22 @@ io/monk/docs/collection/findOneAndUpdate.html)&#x27;)
     return doc &#x26;&#x26; doc.value || doc
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {String|Object|ObjectId} query
+ * @param {Object} update
+ * @param {Object|String|Array} [opts] options or fields
+ * @param {Function} [fn] callback
+ *
+ * @example
+ *
+ * users.<span class="apidocCodeKeywordSpan">findOneAndUpdate</span>({ name: &#x27;Mathieu&#x27; }, opts)
+ * users.findOneAndUpdate({ query: { name: &#x27;Mathieu&#x27; }, opts)
+ * @return {Promise}
+ */
+
+Collection.prototype.findOneAndUpdate = function (query, update, opts, fn) {
+query = util.query(query)
+...</pre></li>
     </ul>
 
 
@@ -1231,7 +1642,23 @@ io/monk/docs/collection/findOneAndUpdate.html)&#x27;)
     return col.group(keys, condition, initial, reduce, finalize, command, opts)
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ }
+
+ opts = this.opts(opts)
+
+ // query
+ debug(&#x27;%s group %j with %j&#x27;, this.name, keys, condition)
+ return this.executeWhenOpened().then(function (col) {
+   return col.<span class="apidocCodeKeywordSpan">group</span>(keys, condition, initial, reduce, finalize, command, opts)
+ }).then(thenFn(fn)).catch(catchFn(fn))
+}
+
+/**
+* Returns an array that holds a list of documents that identify and describe the existing indexes on the collection.
+*
+* https://docs.mongodb.com/manual/reference/method/db.collection.getIndexes/
+...</pre></li>
     </ul>
 
 
@@ -1247,7 +1674,17 @@ io/monk/docs/collection/findOneAndUpdate.html)&#x27;)
   console.warn(&#x27;DEPRECATED (collection.id): use monk.id instead (see https://Automattic.github.io/monk/docs/id.html)&#x27;)
   return require(&#x27;./helpers&#x27;).id(str)
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * @deprecated
+ */
+
+Collection.prototype.id = function (str) {
+  console.warn(&#x27;DEPRECATED (collection.id): use monk.id instead (see https://Automattic.github.io/monk/docs/id.html)&#x27;)
+  return require(&#x27;./helpers&#x27;).<span class="apidocCodeKeywordSpan">id</span>(str)
+}
+...</pre></li>
     </ul>
 
 
@@ -1354,7 +1791,23 @@ users.remove({ name: &#x27;Loki&#x27; })
 
   return opts
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Collection.prototype.aggregate = function (stages, opts, fn) {
+if (typeof opts === &#x27;function&#x27;) {
+  fn = opts
+  opts = {}
+}
+
+// opts
+opts = this.<span class="apidocCodeKeywordSpan">opts</span>(opts)
+
+// query
+debug(&#x27;%s aggregate %j&#x27;, this.name, stages)
+return this.executeWhenOpened().then(function (col) {
+  return col.aggregate(stages, opts)
+}).then(function (cursor) {
+  return cursor.toArray()
+...</pre></li>
     </ul>
 
 
@@ -1420,7 +1873,24 @@ db.close()
 /remove.html)&#x27;)
   return this.remove({ _id: id }, opts, fn)
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ * @param {String} hex id
+ * @param {Object} [opts]  options
+ * @param {Function} [fn] callback
+ *
+ * @example
+ *
+ * users.<span class="apidocCodeKeywordSpan">removeById</span>(id)
+ * @return {Promise}
+ */
+
+Collection.prototype.removeById = function (id, opts, fn) {
+  console.warn(&#x27;DEPRECATED (collection.removeById): use collection.remove instead (see https://Automattic.github.io/monk/docs
+/collection/remove.html)&#x27;)
+  return this.remove({ _id: id }, opts, fn)
+}
+...</pre></li>
     </ul>
 
 
@@ -1456,7 +1926,23 @@ db.close()
     return doc &#x26;&#x26; doc.result || doc
   }).then(thenFn(fn)).catch(catchFn(fn))
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {Object} query
+ * @param {Object} update obj
+ * @param {Object|String|Array} [opts], options or fields
+ * @param {Function} [fn] callback
+ *
+ * @example
+ *
+ * users.<span class="apidocCodeKeywordSpan">update</span>({ name: &#x27;Mathieu&#x27; }, { $set: { foo: &#x27;bar&#x27; } })
+ * @return {Promise}
+ */
+
+Collection.prototype.update = function (query, update, opts, fn) {
+query = util.query(query)
+
+if (typeof opts === &#x27;function&#x27;) {
+...</pre></li>
     </ul>
 
 
@@ -1473,7 +1959,24 @@ db.close()
 /update.html)&#x27;)
   return this.update({ _id: id }, update, opts, fn)
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {String|Object} id - object id
+ * @param {Object} update - update obj
+ * @param {Object|String|Array} [opts] options or fields
+ * @param {Function} [fn] callback
+ *
+ * @example
+ *
+ * users.<span class="apidocCodeKeywordSpan">updateById</span>(id, { $set: { foo: &#x27;bar&#x27; } })
+ * @return {Promise}
+ */
+
+Collection.prototype.updateById = function (id, update, opts, fn) {
+  console.warn(&#x27;DEPRECATED (collection.updateById): use collection.update instead (see https://Automattic.github.io/monk/docs
+/collection/update.html)&#x27;)
+  return this.update({ _id: id }, update, opts, fn)
+}
+...</pre></li>
     </ul>
 
 
@@ -1494,7 +1997,494 @@ db.close()
   if (str == null) return ObjectId()
   return typeof str === &#x27;string&#x27; ? ObjectId.createFromHexString(str) : str
 }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * @deprecated
+ */
+
+Collection.prototype.id = function (str) {
+  console.warn(&#x27;DEPRECATED (collection.id): use monk.id instead (see https://Automattic.github.io/monk/docs/id.html)&#x27;)
+  return require(&#x27;./helpers&#x27;).<span class="apidocCodeKeywordSpan">id</span>(str)
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.monk.manager" id="apidoc.module.monk.manager">module monk.manager</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.manager" id="apidoc.element.monk.manager.manager">
+        function <span class="apidocSignatureSpan">monk.</span>manager
+        <span class="apidocSignatureSpan">(uri, opts, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Manager(uri, opts, fn) {
+  if (!uri) {
+    throw Error(&#x27;No connection URI provided.&#x27;)
+  }
+
+  if (!(this instanceof Manager)) {
+    return new Manager(uri, opts, fn)
+  }
+
+  if (typeof opts === &#x27;function&#x27;) {
+    fn = opts
+    opts = {}
+  }
+
+  opts = opts || {}
+
+  if (Array.isArray(uri)) {
+    if (!opts.database) {
+      for (var i = 0, l = uri.length; i &#x3c; l; i++) {
+        if (!opts.database) {
+          opts.database = uri[i].replace(/([^\/])+\/?/, &#x27;&#x27;)
+        }
+        uri[i] = uri[i].replace(/\/.*/, &#x27;&#x27;)
+      }
+    }
+    uri = uri.join(&#x27;,&#x27;) + &#x27;/&#x27; + opts.database
+    monkDebug(&#x27;repl set connection &#x22;%j&#x22; to database &#x22;%s&#x22;&#x27;, uri, opts.database)
+  }
+
+  if (typeof uri === &#x27;string&#x27;) {
+    if (!/^mongodb:\/\//.test(uri)) {
+      uri = &#x27;mongodb://&#x27; + uri
+    }
+  }
+
+  this._state = STATE.OPENING
+
+  this._queue = []
+  this.on(&#x27;open&#x27;, function (db) {
+    monkDebug(&#x27;connection opened&#x27;)
+    monkDebug(&#x27;emptying queries queue (%s to go)&#x27;, this._queue.length)
+    this._queue.forEach(function (cb) {
+      cb(db)
+    })
+  }.bind(this))
+
+  this._connectionURI = uri
+  this._connectionOptions = opts
+
+  this.open(uri, opts, fn &#x26;&#x26; function (err) {
+    fn(err, this)
+  }.bind(this))
+
+  this.helper = {
+    id: ObjectId
+  }
+
+  this.collections = {}
+  this.options = { safe: true }
+
+  this.open = this.open.bind(this)
+  this.close = this.close.bind(this)
+  this.executeWhenOpened = this.executeWhenOpened.bind(this)
+  this.collection = this.col = this.get = this.get.bind(this)
+  this.oid = this.id
+}</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.Collection" id="apidoc.element.monk.manager.Collection">
+        function <span class="apidocSignatureSpan">monk.manager.</span>Collection
+        <span class="apidocSignatureSpan">(manager, name, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Collection(manager, name, options) {
+  this.manager = manager
+  this.name = name
+  this.options = options || {}
+
+  delete this.options.cache
+
+  this.oid = this.id
+  this.opts = this.opts.bind(this)
+  this.index = this.ensureIndex = this.ensureIndex.bind(this)
+  this.dropIndex = this.dropIndex.bind(this)
+  this.indexes = this.indexes.bind(this)
+  this.dropIndexes = this.dropIndexes.bind(this)
+  this.update = this.update.bind(this)
+  this.updateById = this.updateById.bind(this)
+  this.remove = this.remove.bind(this)
+  this.removeById = this.removeById.bind(this)
+  this.findAndModify = this.findAndModify.bind(this)
+  this.findOneAndUpdate = this.findOneAndUpdate.bind(this)
+  this.findOneAndDelete = this.findOneAndDelete.bind(this)
+  this.insert = this.insert.bind(this)
+  this.findById = this.findById.bind(this)
+  this.find = this.find.bind(this)
+  this.distinct = this.distinct.bind(this)
+  this.count = this.count.bind(this)
+  this.findOne = this.findOne.bind(this)
+  this.aggregate = this.aggregate.bind(this)
+  this.drop = this.drop.bind(this)
+  util.cast = util.cast.bind(this)
+  this.executeWhenOpened = this.executeWhenOpened.bind(this)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.id" id="apidoc.element.monk.manager.id">
+        function <span class="apidocSignatureSpan">monk.manager.</span>id
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">id = function (str) {
+  if (str == null) return ObjectId()
+  return typeof str === &#x27;string&#x27; ? ObjectId.createFromHexString(str) : str
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * @deprecated
+ */
+
+Collection.prototype.id = function (str) {
+  console.warn(&#x27;DEPRECATED (collection.id): use monk.id instead (see https://Automattic.github.io/monk/docs/id.html)&#x27;)
+  return require(&#x27;./helpers&#x27;).<span class="apidocCodeKeywordSpan">id</span>(str)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.super_" id="apidoc.element.monk.manager.super_">
+        function <span class="apidocSignatureSpan">monk.manager.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.monk.manager.prototype" id="apidoc.module.monk.manager.prototype">module monk.manager.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.prototype.catch" id="apidoc.element.monk.manager.prototype.catch">
+        function <span class="apidocSignatureSpan">monk.manager.prototype.</span>catch
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">catch = function (fn) {
+  return new Promise(function (resolve) {
+    this.once(&#x27;error-opening&#x27;, resolve)
+  }.bind(this)).then(fn.bind(null))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ // query
+ debug(&#x27;%s aggregate %j&#x27;, this.name, stages)
+ return this.executeWhenOpened().then(function (col) {
+   return col.aggregate(stages, opts)
+ }).then(function (cursor) {
+   return cursor.toArray()
+ }).then(thenFn(fn)).<span class="apidocCodeKeywordSpan">catch</span>(catchFn(fn))
+}
+
+/**
+* Perform a bulkWrite operation without a fluent API
+*
+* http://mongodb.github.io/node-mongodb-native/2.1/api/Collection.html#bulkWrite
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.prototype.close" id="apidoc.element.monk.manager.prototype.close">
+        function <span class="apidocSignatureSpan">monk.manager.prototype.</span>close
+        <span class="apidocSignatureSpan">(force, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function (force, fn) {
+  if (typeof force === &#x27;function&#x27;) {
+    fn = force
+    force = false
+  }
+
+  var self = this
+  function close (resolve, db) {
+    db.close(force, function () {
+      self._state = STATE.CLOSED
+      self.emit(&#x27;close&#x27;)
+      if (fn) {
+        fn()
+      }
+      resolve()
+    })
+  }
+
+  switch (this._state) {
+    case STATE.CLOSED:
+      if (fn) {
+        fn()
+      }
+      return Promise.resolve()
+    case STATE.OPENING:
+      return new Promise(function (resolve) {
+        self._queue.push(function (db) {
+          close(resolve, db)
+        })
+      })
+    case STATE.OPEN:
+    default:
+      return new Promise(function (resolve) {
+        close(resolve, self._db)
+      })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // exclude bigdata field
+})
+users.find({}, {sort: {name: 1}}).then(function () {
+  // sorted by name field
+})
+users.remove({ name: &#x27;Loki&#x27; })
+
+db.<span class="apidocCodeKeywordSpan">close</span>()
+```
+
+## Features
+
+- Command buffering. You can start querying right away.
+- Promises built-in for all queries. Easy interoperability with modules.
+- Easy connections / configuration
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.prototype.create" id="apidoc.element.monk.manager.prototype.create">
+        function <span class="apidocSignatureSpan">monk.manager.prototype.</span>create
+        <span class="apidocSignatureSpan">(name, creationOptions, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (name, creationOptions, options) {
+  this.executeWhenOpened().then(function (db) {
+    db.createCollection(name, creationOptions)
+  }).catch(function (err) {
+    this.emit(&#x27;error&#x27;, err)
+  })
+
+  if ((options || {}).cache === false || !this.collections[name]) {
+    this.collections[name] = new Collection(this, name, options)
+  }
+
+  return this.collections[name]
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.prototype.executeWhenOpened" id="apidoc.element.monk.manager.prototype.executeWhenOpened">
+        function <span class="apidocSignatureSpan">monk.manager.prototype.</span>executeWhenOpened
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">executeWhenOpened = function () {
+  switch (this._state) {
+    case STATE.OPEN:
+      return Promise.resolve(this._db)
+    case STATE.OPENING:
+      return new Promise(function (resolve) {
+        this._queue.push(resolve)
+      }.bind(this))
+    case STATE.CLOSED:
+    default:
+      return new Promise(function (resolve) {
+        this._queue.push(resolve)
+        this.open(this._connectionURI, this._connectionOptions)
+      }.bind(this))
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Execute when connection opened.
+* @private
+*/
+
+Collection.prototype.executeWhenOpened = function (fn) {
+ return this.manager.<span class="apidocCodeKeywordSpan">executeWhenOpened</span>().then(function (db) {
+   return db.collection(this.name)
+ }.bind(this))
+}
+
+/**
+* Opts utility.
+* @private
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.prototype.get" id="apidoc.element.monk.manager.prototype.get">
+        function <span class="apidocSignatureSpan">monk.manager.prototype.</span>get
+        <span class="apidocSignatureSpan">(name, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (name, options) {
+  if ((options || {}).cache === false || !this.collections[name]) {
+    this.collections[name] = new Collection(this, name, options)
+  }
+
+  return this.collections[name]
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Monk is a tiny layer that provides simple yet substantial usability
+improvements for MongoDB usage within Node.JS.
+
+*note*: monk 2.x drop the support for node &#x3c; 0.12. If you are still using an earlier version, stick to monk 1.x
+
+```js
+const db = require(&#x27;monk&#x27;)(&#x27;localhost/mydb&#x27;)
+const users = db.<span class="apidocCodeKeywordSpan">get</span>(&#x27;users&#x27;)
+
+users.index(&#x27;name last&#x27;)
+users.insert({ name: &#x27;Tobi&#x27;, bigdata: {} })
+users.find({ name: &#x27;Loki&#x27; }, &#x27;-bigdata&#x27;).then(function () {
+  // exclude bigdata field
+})
+users.find({}, {sort: {name: 1}}).then(function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.prototype.id" id="apidoc.element.monk.manager.prototype.id">
+        function <span class="apidocSignatureSpan">monk.manager.prototype.</span>id
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">id = function (str) {
+  console.warn(&#x27;DEPRECATED (manager.id): use monk.id instead (see https://Automattic.github.io/monk/docs/id.html)&#x27;)
+  return require(&#x27;./helpers&#x27;).id(str)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * @deprecated
+ */
+
+Collection.prototype.id = function (str) {
+  console.warn(&#x27;DEPRECATED (collection.id): use monk.id instead (see https://Automattic.github.io/monk/docs/id.html)&#x27;)
+  return require(&#x27;./helpers&#x27;).<span class="apidocCodeKeywordSpan">id</span>(str)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.prototype.open" id="apidoc.element.monk.manager.prototype.open">
+        function <span class="apidocSignatureSpan">monk.manager.prototype.</span>open
+        <span class="apidocSignatureSpan">(uri, opts, fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">open = function (uri, opts, fn) {
+  MongoClient.connect(uri, opts, function (err, db) {
+    if (err || !db) {
+      this._state = STATE.CLOSED
+      this.emit(&#x27;error-opening&#x27;, err)
+    } else {
+      this._state = STATE.OPEN
+      this._db = db
+      this.emit(&#x27;open&#x27;, db)
+    }
+    if (fn) {
+      fn(err, this)
+    }
+  }.bind(this))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    cb(db)
+  })
+}.bind(this))
+
+this._connectionURI = uri
+this._connectionOptions = opts
+
+this.<span class="apidocCodeKeywordSpan">open</span>(uri, opts, fn &#x26;&#x26; function (err) {
+  fn(err, this)
+}.bind(this))
+
+this.helper = {
+  id: ObjectId
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.monk.manager.prototype.then" id="apidoc.element.monk.manager.prototype.then">
+        function <span class="apidocSignatureSpan">monk.manager.prototype.</span>then
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">then = function (fn) {
+  return new Promise(function (resolve, reject) {
+    this.once(&#x27;open&#x27;, resolve)
+    this.once(&#x27;error-opening&#x27;, reject)
+  }.bind(this)).then(fn.bind(null, this))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+const db = require(&#x27;monk&#x27;)(&#x27;localhost/mydb&#x27;)
+const users = db.get(&#x27;users&#x27;)
+
+users.index(&#x27;name last&#x27;)
+users.insert({ name: &#x27;Tobi&#x27;, bigdata: {} })
+users.find({ name: &#x27;Loki&#x27; }, &#x27;-bigdata&#x27;).<span class="apidocCodeKeywordSpan">then</span>(function () {
+  // exclude bigdata field
+})
+users.find({}, {sort: {name: 1}}).then(function () {
+  // sorted by name field
+})
+users.remove({ name: &#x27;Loki&#x27; })
+...</pre></li>
     </ul>
 
 
@@ -1536,7 +2526,23 @@ db.close()
 
   return obj
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  opts = {}
+}
+
+opts = this.opts(opts)
+
+// cast
+if (opts.castIds !== false) {
+  operations = util.<span class="apidocCodeKeywordSpan">cast</span>(operations)
+}
+
+// query
+debug(&#x27;%s bulkWrite %j&#x27;, this.name, operations)
+return this.executeWhenOpened().then(function (col) {
+  return col.bulkWrite(operations, opts)
+}).then(thenFn(fn)).catch(catchFn(fn))
+...</pre></li>
     </ul>
 
 
@@ -1566,7 +2572,23 @@ db.close()
 
   return fields
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Collection.prototype.dropIndex = function (fields, opts, fn) {
+if (typeof opts === &#x27;function&#x27;) {
+  fn = opts
+  opts = {}
+}
+
+fields = util.<span class="apidocCodeKeywordSpan">fields</span>(fields)
+opts = this.opts(opts)
+
+// query
+debug(&#x27;%s dropIndex %j (%j)&#x27;, this.name, fields, opts)
+return this.executeWhenOpened().then(function (col) {
+  return col.dropIndex(fields, opts)
+}).then(thenFn(fn)).catch(catchFn(fn))
+...</pre></li>
     </ul>
 
 
@@ -1587,7 +2609,22 @@ db.close()
   opts.sort = exports.fields(opts.sort, -1)
   return opts
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+ * Opts utility.
+ * @private
+ */
+
+Collection.prototype.opts = function (opts) {
+opts = util.<span class="apidocCodeKeywordSpan">options</span>(opts || {})
+
+for (var i in this.manager.options) {
+  if (!(i in opts) &#x26;&#x26; !(i in this.options)) {
+    opts[i] = this.manager.options[i]
+  }
+}
+...</pre></li>
     </ul>
 
 
@@ -1608,7 +2645,23 @@ db.close()
 
   return query
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {Object} query - The query selection criteria.
+ * @param {Object} [opts] - Extra options for modifying the count.
+ * @param {Function} [fn] - completion callback.
+ * @return {Promise}
+ */
+
+Collection.prototype.count = function (query, opts, fn) {
+query = util.<span class="apidocCodeKeywordSpan">query</span>(query)
+
+if (typeof opts === &#x27;function&#x27;) {
+  fn = opts
+  opts = {}
+}
+
+// opts
+...</pre></li>
     </ul>
 
 
